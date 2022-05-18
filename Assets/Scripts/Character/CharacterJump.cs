@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(CharacterInput))]
 [RequireComponent(typeof(AnimatorService))]
 public class CharacterJump : MonoBehaviour
 {
@@ -19,12 +20,11 @@ public class CharacterJump : MonoBehaviour
     {
         rigidbody2D = GetComponent<Rigidbody2D>();
         animatorService = GetComponent<AnimatorService>();
-        characterInput = new CharacterInput();
+        characterInput = GetComponent<CharacterInput>();
     }
 
     public void Update()
     {
-        characterInput.SetInput();
         if (characterInput.isJump)
         {
             if (isJump && !isDoubleJump)

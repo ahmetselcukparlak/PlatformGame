@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(CharacterInput))]
 [RequireComponent(typeof(AnimatorService))]
 public class CharacterClimb : MonoBehaviour
 {
@@ -20,12 +21,11 @@ public class CharacterClimb : MonoBehaviour
     private void Awake()
     {
         rigidbody2D = GetComponent<Rigidbody2D>();
-        _characterInput = new CharacterInput();
+        _characterInput = GetComponent<CharacterInput>();
         animatorService = GetComponent<AnimatorService>();
     }
     private void Update()
     {
-        _characterInput.SetInput();
         if (isLadder && Mathf.Abs(_characterInput.Vertical) > 0f)
         {
             if (isGround && _characterInput.Vertical < 0)
