@@ -5,8 +5,8 @@ using UnityEngine;
 public class CharacterHealth : ICharacterHealth
 {
     private IAnimatorService _animatorService;
-    private int _health;
-    public int Health
+    private float _health;
+    public float Health
     {
         get
         {
@@ -27,20 +27,20 @@ public class CharacterHealth : ICharacterHealth
         _animatorService = animatorService;
         Health = 100;
     }
-    public CharacterHealth(int health, IAnimatorService animatorService)
+    public CharacterHealth(float health, IAnimatorService animatorService)
     {
         _animatorService = animatorService;
         Health = health;
     }
-    public int GetHealth()
+    public float GetHealth()
     {
         return Health;
     }
-    public void SetHealth(int health)
+    public void SetHealth(float health)
     {
         Health = health;
     }
-    public void CanAzalt(int health)
+    public void CanAzalt(float health)
     {
         Health -= health;
         if (GetHealth() == 0)
@@ -54,7 +54,7 @@ public class CharacterHealth : ICharacterHealth
             Debug.Log("Hasar Aldýk, Yeni Can : " + GetHealth());
         }
     }
-    public void CanArttir(int health)
+    public void CanArttir(float health)
     {
         Health += health;
         Debug.Log("Can Ekledik, Yeni Can : " + GetHealth());

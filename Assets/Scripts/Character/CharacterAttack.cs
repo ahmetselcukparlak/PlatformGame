@@ -21,6 +21,8 @@ public class CharacterAttack : MonoBehaviour
         characterInput.SetInput();
         if (characterInput.isAttack)
         {
+            //Collider Aktif Et
+            //Düþmanýn Canýný Azalt
             animatorService.Set(attackNames[Random.Range(0, attackNames.Count)]);
         }
     }

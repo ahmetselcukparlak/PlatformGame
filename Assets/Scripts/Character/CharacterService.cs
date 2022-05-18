@@ -7,6 +7,11 @@ public class CharacterService : MonoBehaviour
     public static CharacterService Instance { get; set; }
     public ICharacterHealth characterHealth;
     public CharacterMovement characterMovement;
+
+    private void Awake()
+    {
+        Instance = this;
+    }
     public void Start()
     {
         characterHealth = new CharacterHealth(GetComponent<AnimatorService>());

@@ -1,9 +1,9 @@
 ﻿public interface ICharacterHealth
 {
-    public int Health { get; set; }
+    public float Health { get; set; }
 
-    public int GetHealth();
-    public void SetHealth(int health);
-    public void CanAzalt(int health);
-    public void CanArttir(int health);
+    public float GetHealth();
+    public void SetHealth(float health);
+    public void CanAzalt(float health);
+    public void CanArttir(float health);
 }
