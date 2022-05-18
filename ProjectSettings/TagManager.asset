@@ -7,6 +7,7 @@ TagManager:
   - Zemin
   - Kunai
   - Ladder
+  - Enemy
   layers:
   - Default
   - TransparentFX
@@ -15,9 +16,9 @@ TagManager:
   - Water
   - UI
   - 
-  - 
-  - 
-  - 
+  - Player
+  - Ground
+  - Damageable
   - 
   - 
   - 
@@ -41,9 +42,12 @@ TagManager:
   - 
   - 
   m_SortingLayers:
-  - name: Zemin
-    uniqueID: 2172157639
-    locked: 0
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Enemy
+    uniqueID: 1225666105
+    locked: 0
+  - name: Zemin
+    uniqueID: 2172157639
     locked: 0
