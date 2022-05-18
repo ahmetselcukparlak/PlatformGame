@@ -5,7 +5,7 @@ using UnityEngine;
 public class CharacterService : MonoBehaviour
 {
     public static CharacterService Instance { get; set; }
-    public ICharacterHealth characterHealth;
+    public AHealth characterHealth;
     public CharacterMovement characterMovement;
 
     private void Awake()
@@ -14,7 +14,7 @@ public class CharacterService : MonoBehaviour
     }
     public void Start()
     {
-        characterHealth = new CharacterHealth(GetComponent<AnimatorService>());
+        characterHealth = new CharacterHealth(100, GetComponent<AnimatorService>());
     }
 
 

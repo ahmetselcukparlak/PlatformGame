@@ -51,7 +51,7 @@ public class Entity : MonoBehaviour
 
     public virtual void SetVelocity(float velocity)
     {
-        Debug.Log("setting velocity");
+        //Debug.Log("setting velocity");
         velocityWorkspace.Set(facingDirection * velocity, rb.velocity.y);
         rb.velocity = new Vector3(velocityWorkspace.x, velocityWorkspace.y, 0);
     }

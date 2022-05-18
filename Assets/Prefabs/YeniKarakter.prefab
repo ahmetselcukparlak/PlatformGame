@@ -19,8 +19,8 @@ GameObject:
   - component: {fileID: 2730479841732661217}
   - component: {fileID: 2730479841732661211}
   - component: {fileID: 2730479841732661216}
-  - component: {fileID: 1713833258}
-  m_Layer: 0
+  - component: {fileID: 637458263}
+  m_Layer: 7
   m_Name: YeniKarakter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -130,6 +130,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 21805c2a61782b24f92f97a36e8b53cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  characterHealth: {fileID: 0}
   characterMovement: {fileID: 0}
 --- !u!114 &2730479841732661223
 MonoBehaviour:
@@ -145,7 +146,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isJump: 0
   isDoubleJump: 0
-  jumpSpeed: 9
+  jumpSpeed: 10
 --- !u!114 &2730479841732661208
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -227,27 +228,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0305212cc7a8ba34995f2d26c425b218, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  attackCollider: {fileID: 0}
   attackNames:
   - Attack1
   - Attack2
   - Attack3
---- !u!114 &1713833258
-MonoBehaviour:
+--- !u!58 &637458263
+CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2730479841732661212}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 217e7af45393c764c999425d55be84a5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  inputTimer: 0.2
-  attack1Radius: 1
-  attack1Damage: 10
-  combatEnabled: 1
-  attack1HitboxPos: {fileID: 0}
-  whatIsDamageable:
-    serializedVersion: 2
-    m_Bits: 256
+  m_Enabled: 0
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 1.5

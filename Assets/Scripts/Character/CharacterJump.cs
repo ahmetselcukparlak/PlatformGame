@@ -33,6 +33,10 @@ public class CharacterJump : MonoBehaviour
                 animatorService.Set("DoubleJump");
                 isDoubleJump = true;
             }
+            else if (isJump && isDoubleJump)
+            {
+                return;
+            }
             else
             {
                 rigidbody2D.AddForce(Vector2.up * jumpSpeed, ForceMode2D.Impulse);

@@ -12,7 +12,7 @@ public class Enemy1Controller : MonoBehaviour
     }
 
     private State currentState;
-
+ 
     private void Update()
     {
         switch (currentState)
