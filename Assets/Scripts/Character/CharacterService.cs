@@ -4,5 +4,20 @@ using UnityEngine;
 
 public class CharacterService : MonoBehaviour
 {
-    
+    public static CharacterService Instance { get; set; }
+    public ICharacterHealth characterHealth;
+    public CharacterMovement characterMovement;
+    public void Start()
+    {
+        characterHealth = new CharacterHealth(GetComponent<AnimatorService>());
+    }
+
+
+    public void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Y))
+            characterHealth.CanArttir(5);
+        if (Input.GetKeyDown(KeyCode.U))
+            characterHealth.CanAzalt(10);
+    }
 }
