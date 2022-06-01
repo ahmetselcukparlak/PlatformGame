@@ -14,6 +14,8 @@ public class Entity : MonoBehaviour
     public GameObject aliveGO { get; private set; }
     public AnimationToStatemachine atsm { get; private set; }
 
+    public EnemyService enemyService { get; private set; }
+
     [SerializeField]
     private Transform wallCheck;
     [SerializeField]
@@ -23,24 +25,42 @@ public class Entity : MonoBehaviour
 
     private float currentHealth;
 
+    private float healthDump;
+
     private int lastDamageDirection;
 
     private Vector2 velocityWorkspace;
 
+    protected bool isDead = false;
+
     public virtual void Start()
     {
-        currentHealth = entityData.maxHealth;
+        //currentHealth = GetComponent<EnemyService>().health.GetHealth();
+        
 
         aliveGO = transform.Find("Alive").gameObject;
+        enemyService = aliveGO.GetComponent<EnemyService>();
         rb = aliveGO.GetComponent<Rigidbody2D>();
         anim = aliveGO.GetComponent<Animator>();
         atsm = aliveGO.GetComponent<AnimationToStatemachine>();
 
+        currentHealth = enemyService.health.GetHealth();
+        healthDump = currentHealth;
         stateMachine = new FiniteStateMachine();
     }
 
     public virtual void Update()
     {
+        currentHealth = enemyService.health.GetHealth();
+        
+        if (currentHealth <= 0)
+            isDead = true;
+        if(healthDump != currentHealth)
+        {
+            healthDump = currentHealth;
+            Instantiate(entityData.hitParticle, aliveGO.transform.position, Quaternion.Euler(0f, 0f, Random.Range(0f, 360f)));
+        }
+        
         stateMachine.currentState.LogicUpdate();
     }
 

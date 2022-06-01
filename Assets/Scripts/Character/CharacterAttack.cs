@@ -42,6 +42,7 @@ public class CharacterAttack : MonoBehaviour
         if (collision.gameObject.CompareTag("Enemy"))
         {
             collision.GetComponent<EnemyService>().health.CanAzalt(50);
+            Debug.Log(collision.GetComponent<EnemyService>().health.GetHealth());
         }
     }
 
