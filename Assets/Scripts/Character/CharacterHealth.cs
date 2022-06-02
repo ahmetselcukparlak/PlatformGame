@@ -18,6 +18,7 @@ public class CharacterHealth : AHealth
     public override void Dead()
     {
         _animatorService.Set("Die");
+
         Debug.Log("Oyun Bitti Karakter Öldü");
 
     }

@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public abstract class AHealth : MonoBehaviour
+public abstract class AHealth
 {
     protected IAnimatorService _animatorService;
 

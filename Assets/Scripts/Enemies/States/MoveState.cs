@@ -42,6 +42,11 @@ public class MoveState : State
     public override void PhysicsUpdate()
     {
         base.PhysicsUpdate();
+        if (entity.CheckVelocity())
+        {
+            entity.SetVelocity(stateData.movementSpeed);
+           
+        }
 
     }
 }

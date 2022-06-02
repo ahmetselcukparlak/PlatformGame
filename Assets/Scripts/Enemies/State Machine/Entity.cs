@@ -14,6 +14,7 @@ public class Entity : MonoBehaviour
     public GameObject aliveGO { get; private set; }
     public AnimationToStatemachine atsm { get; private set; }
 
+    public Transform enemyTransform { get; private set; }
     public EnemyService enemyService { get; private set; }
 
     [SerializeField]
@@ -35,12 +36,13 @@ public class Entity : MonoBehaviour
 
     public virtual void Start()
     {
-        //currentHealth = GetComponent<EnemyService>().health.GetHealth();
+       
         
 
         aliveGO = transform.Find("Alive").gameObject;
         enemyService = aliveGO.GetComponent<EnemyService>();
         rb = aliveGO.GetComponent<Rigidbody2D>();
+        enemyTransform = aliveGO.GetComponent<Transform>();
         anim = aliveGO.GetComponent<Animator>();
         atsm = aliveGO.GetComponent<AnimationToStatemachine>();
 
@@ -71,11 +73,22 @@ public class Entity : MonoBehaviour
 
     public virtual void SetVelocity(float velocity)
     {
-        //Debug.Log("setting velocity");
+       
         velocityWorkspace.Set(facingDirection * velocity, rb.velocity.y);
         rb.velocity = new Vector3(velocityWorkspace.x, velocityWorkspace.y, 0);
     }
-
+    public virtual bool CheckVelocity()
+    {
+        if(rb.velocity.x == 0)
+        {
+            enemyTransform.position = new Vector3( enemyTransform.position.x, enemyTransform.position.y + 0.01f, enemyTransform.position.z);
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
     public virtual bool CheckWall()
     {
         return Physics2D.Raycast(wallCheck.position, aliveGO.transform.right, entityData.wallCheckDistance, entityData.whatIsGround);

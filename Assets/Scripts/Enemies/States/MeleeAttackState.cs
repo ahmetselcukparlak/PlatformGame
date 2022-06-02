@@ -53,7 +53,11 @@ public class MeleeAttackState : AttackState
 
         foreach (Collider2D collider in detectedObjects) //oyuncuya verilen hasar için mesaj gönderiliyor
         {
-            // collider.transform.SendMessage("Damage",attackDetails);
+         
+            if (CharacterService.Instance.characterHealth.GetHealth() <= 0)
+            {
+                CharacterService.Instance.Dead();
+            }
             CharacterService.Instance.characterHealth.CanAzalt(10);
         }
     }
