@@ -6,13 +6,17 @@ public class CharacterService : MonoBehaviour
 {
     public static CharacterService Instance { get; set; }
     public AHealth characterHealth;
-    public CharacterMovement characterMovement;
+    private CharacterMovement characterMovement;
+    private CharacterJump characterJump;
+    
     public GameObject oyuncu;
     public HealthBarBehaviour Healthbar;
     private void Awake()
     {
-        oyuncu = this.gameObject;
         Instance = this;
+        oyuncu = this.gameObject;
+        characterMovement = GetComponent<CharacterMovement>();
+        characterJump = GetComponent<CharacterJump>();
     }
     public void Start()
     {
@@ -23,12 +27,8 @@ public class CharacterService : MonoBehaviour
         int LayerIgnoreRaycast = LayerMask.NameToLayer("Ground");
         gameObject.layer = LayerIgnoreRaycast;
     }
-
-    public void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Y))
-            characterHealth.CanArttir(5);
-        if (Input.GetKeyDown(KeyCode.U))
-            characterHealth.CanAzalt(10);
+    public void DisableCharacter(){
+        characterMovement.enabled = false;
+        characterJump.enabled=false;
     }
 }

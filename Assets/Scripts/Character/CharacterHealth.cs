@@ -11,16 +11,14 @@ public class CharacterHealth : AHealth
     public override void HasarAl()
     {
         _animatorService.Set("Hurt");
-        Healthbar.SetHealth(GetHealth(),100);
-        Debug.Log("Hasar Ald�k, Yeni Can : " + GetHealth());
+        //Healthbar.SetHealth(GetHealth(),100);
+        Debug.Log("Hasar Aldık, Yeni Can : " + GetHealth());
         
     }
-
     public override void Dead()
     {
         _animatorService.Set("Die");
-
-        Debug.Log("Oyun Bitti Karakter �ld�");
-
+        CharacterService.Instance.DisableCharacter();
+        Debug.Log("Oyun Bitti Karakter Öldü");
     }
 }
