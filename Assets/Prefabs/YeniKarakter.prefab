@@ -20,6 +20,7 @@ GameObject:
   - component: {fileID: 2730479841732661211}
   - component: {fileID: 2730479841732661216}
   - component: {fileID: 637458263}
+  - component: {fileID: 717827653}
   m_Layer: 7
   m_Name: YeniKarakter
   m_TagString: Untagged
@@ -105,7 +106,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxSpeed: 8
-  speed: 8
+  _speed: 8
 --- !u!114 &2730479841732661221
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -130,8 +131,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 21805c2a61782b24f92f97a36e8b53cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  characterHealth: {fileID: 0}
-  characterMovement: {fileID: 0}
+  HealthBar: {fileID: 0}
+  oyuncu: {fileID: 0}
 --- !u!114 &2730479841732661223
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -249,3 +250,16 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 1.5
+--- !u!114 &717827653
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2730479841732661212}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b84ed8bbe59cff5448f3960bd9b8507b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  altinManager: {fileID: 0}
