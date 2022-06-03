@@ -5,7 +5,6 @@ using UnityEngine;
 public class FiniteStateMachine 
 {
     public State currentState { get; private set; }
-
     public void Initialize(State startingState)
     {
         currentState = startingState;

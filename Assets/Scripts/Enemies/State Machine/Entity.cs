@@ -36,9 +36,7 @@ public class Entity : MonoBehaviour
 
     public virtual void Start()
     {
-       
-        
-
+  
         aliveGO = transform.Find("Alive").gameObject;
         enemyService = aliveGO.GetComponent<EnemyService>();
         rb = aliveGO.GetComponent<Rigidbody2D>();
