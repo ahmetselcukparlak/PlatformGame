@@ -9,6 +9,7 @@ public abstract class AHealth
     {
         _animatorService = animatorService;
         Health = health;
+        this.Healthbar = Healthbar;
     }
     public AHealth(float health, IAnimatorService animatorService)
     {

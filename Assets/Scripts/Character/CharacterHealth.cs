@@ -4,12 +4,10 @@ using UnityEngine;
 
 public class CharacterHealth : AHealth
 {
-    
-    public CharacterHealth(float health, IAnimatorService animatorService,HealthBarBehaviour Healthbar) : base(health, animatorService,Healthbar)
+    public CharacterHealth(float health, IAnimatorService animatorService, HealthBarBehaviour Healthbar) : base(health, animatorService, Healthbar)
     {
-        Healthbar.SetHealth(GetHealth(),100);
     }
-    
+
     public override void HasarAl()
     {
         _animatorService.Set("Hurt");
