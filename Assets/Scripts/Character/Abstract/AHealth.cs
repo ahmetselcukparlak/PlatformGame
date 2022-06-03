@@ -3,7 +3,13 @@
 public abstract class AHealth
 {
     protected IAnimatorService _animatorService;
+    public HealthBarBehaviour Healthbar;
 
+    public AHealth(float health,IAnimatorService animatorService,HealthBarBehaviour Healthbar)
+    {
+        _animatorService = animatorService;
+        Health = health;
+    }
     public AHealth(float health, IAnimatorService animatorService)
     {
         _animatorService = animatorService;

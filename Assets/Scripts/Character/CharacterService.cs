@@ -8,6 +8,7 @@ public class CharacterService : MonoBehaviour
     public AHealth characterHealth;
     public CharacterMovement characterMovement;
     public GameObject oyuncu;
+    public HealthBarBehaviour Healthbar;
     private void Awake()
     {
         oyuncu = this.gameObject;
@@ -15,7 +16,7 @@ public class CharacterService : MonoBehaviour
     }
     public void Start()
     {
-        characterHealth = new CharacterHealth(100, GetComponent<AnimatorService>());
+        characterHealth = new CharacterHealth(100, GetComponent<AnimatorService>(),Healthbar);
     }
     public void Dead()
     {

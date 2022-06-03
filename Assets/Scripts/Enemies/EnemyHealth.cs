@@ -10,11 +10,11 @@ public class EnemyHealth : AHealth
 
     public override void Dead()
     {
-        Debug.Log("Enemy Öldü");
+        Debug.Log("Enemy ï¿½ldï¿½");
     }
 
     public override void HasarAl()
     {
-        Debug.Log("Hasar Alýyor Yeni Can : " + GetHealth());
+        Debug.Log("Hasar Alï¿½yor Yeni Can : " + GetHealth());
     }
 }
