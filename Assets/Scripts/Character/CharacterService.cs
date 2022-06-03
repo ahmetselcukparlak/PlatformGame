@@ -8,9 +8,11 @@ public class CharacterService : MonoBehaviour
     public AHealth characterHealth;
     private CharacterMovement characterMovement;
     private CharacterJump characterJump;
-    
+
+    public HealthBar HealthBar;
+
     public GameObject oyuncu;
-    public HealthBarBehaviour Healthbar;
+    
     private void Awake()
     {
         Instance = this;
@@ -20,7 +22,8 @@ public class CharacterService : MonoBehaviour
     }
     public void Start()
     {
-        characterHealth = new CharacterHealth(100, GetComponent<AnimatorService>(),Healthbar);
+        HealthBar.SetMaxHealth(100);
+        characterHealth = new CharacterHealth(100, GetComponent<AnimatorService>(),HealthBar);
     }
     public void Dead()
     {

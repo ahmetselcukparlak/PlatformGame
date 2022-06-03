@@ -8,6 +8,7 @@ TagManager:
   - Kunai
   - Ladder
   - Enemy
+  - Gold
   layers:
   - Default
   - TransparentFX

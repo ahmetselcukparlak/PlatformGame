@@ -3,19 +3,20 @@
 public abstract class AHealth
 {
     protected IAnimatorService _animatorService;
-    public HealthBarBehaviour Healthbar;
+    protected HealthBar HealthBar;
+    
 
-    public AHealth(float health,IAnimatorService animatorService,HealthBarBehaviour Healthbar)
-    {
-        _animatorService = animatorService;
-        Health = health;
-        this.Healthbar = Healthbar;
-    }
-    public AHealth(float health, IAnimatorService animatorService)
+    public AHealth(float health,IAnimatorService animatorService)
     {
         _animatorService = animatorService;
         Health = health;
     }
+    public AHealth(float health,IAnimatorService animatorService,HealthBar healthBar){
+        _animatorService = animatorService;
+        Health = health;
+        HealthBar = healthBar;
+    } 
+    
     public float _health;
     public float Health
     {
