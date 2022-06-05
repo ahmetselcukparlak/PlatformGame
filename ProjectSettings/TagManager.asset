@@ -9,6 +9,7 @@ TagManager:
   - Ladder
   - Enemy
   - Gold
+  - Door
   layers:
   - Default
   - TransparentFX

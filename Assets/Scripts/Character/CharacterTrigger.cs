@@ -9,12 +9,12 @@ public class CharacterTrigger : MonoBehaviour
     //Playerprefs save load işlemi olsun
     public AltinManager altinManager;
     public void OnTriggerEnter2D(Collider2D other){
-        if (other.gameObject.CompareTag("Gold"))
+        if (other.gameObject.tag == "Gold")
         {
             altinManager.AltinArttir();
             Debug.Log(altinManager.Altin);
         }
-        else if (other.gameObject.CompareTag("Door"))
+        if (other.gameObject.tag == "Door")
         {
         int whichScene = SceneManager.GetActiveScene().buildIndex;
            if(whichScene == 0)
