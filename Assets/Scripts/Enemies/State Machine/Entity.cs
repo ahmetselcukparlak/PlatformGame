@@ -36,7 +36,7 @@ public class Entity : MonoBehaviour
 
     public virtual void Start()
     {
-  
+
         aliveGO = transform.Find("Alive").gameObject;
         enemyService = aliveGO.GetComponent<EnemyService>();
         rb = aliveGO.GetComponent<Rigidbody2D>();
@@ -44,7 +44,10 @@ public class Entity : MonoBehaviour
         anim = aliveGO.GetComponent<Animator>();
         atsm = aliveGO.GetComponent<AnimationToStatemachine>();
 
-        currentHealth = enemyService.health.GetHealth();
+        if (enemyService.health != null)
+        {
+            currentHealth = enemyService.health.GetHealth();
+        }
         healthDump = currentHealth;
         stateMachine = new FiniteStateMachine();
     }
@@ -52,34 +55,53 @@ public class Entity : MonoBehaviour
     public virtual void Update()
     {
         currentHealth = enemyService.health.GetHealth();
-        
+
         if (currentHealth <= 0)
             isDead = true;
-        if(healthDump != currentHealth)
+        if (healthDump != currentHealth)
         {
             healthDump = currentHealth;
             Instantiate(entityData.hitParticle, aliveGO.transform.position, Quaternion.Euler(0f, 0f, Random.Range(0f, 360f)));
         }
-        
-        stateMachine.currentState.LogicUpdate();
+        if (stateMachine != null)
+        {
+            if (stateMachine.currentState != null)
+            {
+                stateMachine.currentState.LogicUpdate();
+            }
+            else
+            {
+                stateMachine = new FiniteStateMachine();
+            }
+        }
     }
 
     public virtual void FixedUpdate()
     {
-        stateMachine.currentState.PhysicsUpdate();
+        if (stateMachine != null)
+        {
+            if (stateMachine.currentState != null)
+            {
+                stateMachine.currentState.PhysicsUpdate();
+            }
+            else
+            {
+                stateMachine = new FiniteStateMachine();
+            }
+        }
     }
 
     public virtual void SetVelocity(float velocity)
     {
-       
+
         velocityWorkspace.Set(facingDirection * velocity, rb.velocity.y);
         rb.velocity = new Vector3(velocityWorkspace.x, velocityWorkspace.y, 0);
     }
     public virtual bool CheckVelocity()
     {
-        if(rb.velocity.x == 0)
+        if (rb.velocity.x == 0)
         {
-            enemyTransform.position = new Vector3( enemyTransform.position.x, enemyTransform.position.y + 0.01f, enemyTransform.position.z);
+            enemyTransform.position = new Vector3(enemyTransform.position.x, enemyTransform.position.y + 0.01f, enemyTransform.position.z);
             return true;
         }
         else
@@ -123,7 +145,7 @@ public class Entity : MonoBehaviour
 
         DamageHop(entityData.damageHopSpeed);
 
-        if(attackDetails.position.x > aliveGO.transform.position.x)
+        if (attackDetails.position.x > aliveGO.transform.position.x)
         {
             lastDamageDirection = -1;
         }

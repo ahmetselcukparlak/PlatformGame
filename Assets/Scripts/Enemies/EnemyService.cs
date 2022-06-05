@@ -10,10 +10,6 @@ public class EnemyService : MonoBehaviour
     private void Awake()
     {
         Instance = this;
-    }
-    void Start()
-    {
-        
         health = new EnemyHealth(100, null);
     }
 }

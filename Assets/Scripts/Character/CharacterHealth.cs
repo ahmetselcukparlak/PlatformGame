@@ -19,7 +19,7 @@ public class CharacterHealth : AHealth
         _animatorService.Set("Die");
         CharacterService.Instance.DisableCharacter();
         HealthBar.SetHealth(GetHealth());
-
+        UIManager.Instance.GameFail();
         Debug.Log("Oyun Bitti Karakter Öldü");
     }
 }

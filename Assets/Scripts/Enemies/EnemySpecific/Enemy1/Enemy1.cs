@@ -50,7 +50,6 @@ public class Enemy1 : Entity
         if (isDead){
             stateMachine.ChangeState(deadState);
             GameManager.Instance.enemies.Remove(gameObject);
-            
         }
     }
 }

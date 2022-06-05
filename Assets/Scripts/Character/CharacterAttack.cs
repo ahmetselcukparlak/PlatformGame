@@ -10,7 +10,7 @@ public class CharacterAttack : MonoBehaviour
     [SerializeField]
     private CircleCollider2D attackCollider;
     public List<string> attackNames = new List<string>();
-
+    private bool attack;
     private void Awake()
     {
         characterInput = new CharacterInput();
@@ -21,21 +21,23 @@ public class CharacterAttack : MonoBehaviour
     void Update()
     {
         characterInput.SetInput();
-        if (characterInput.isAttack)
+        if (characterInput.isAttack && !attack)
         {
             Invoke("TurnOnCollider", 0);
-            Invoke("TurnOffCollider", 1);
-            //Düþmanýn Canýný Azalt
+            Invoke("TurnOffCollider", 0.5f);
+            //Dï¿½ï¿½manï¿½n Canï¿½nï¿½ Azalt
             animatorService.Set(attackNames[Random.Range(0, attackNames.Count)]);
         }
     }
     void TurnOnCollider()
     {
         attackCollider.enabled = true;
+        attack = true;
     }
     void TurnOffCollider()
     {
         attackCollider.enabled = false;
+        attack = false;
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
