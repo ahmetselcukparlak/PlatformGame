@@ -2,16 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Tilemaps;
 
 public class CharacterTrigger : MonoBehaviour
 {
     public AltinManager altinManager;
+    public Tilemap tilemap;
     public void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.tag == "Gold")
         {
             altinManager.AltinArttir();
-            Debug.Log(altinManager.Altin);
         }
         if (other.gameObject.tag == "Door")
         {
