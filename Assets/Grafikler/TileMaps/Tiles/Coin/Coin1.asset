@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13b75c95f34a00d4e8c04f76b73312e6, type: 3}
+  m_Name: Coin1
+  m_EditorClassIdentifier: 
+  m_AnimatedSprites:
+  - {fileID: 21300000, guid: 9b665c90470a0f74e91734a46f2b2eda, type: 2}
+  - {fileID: 21300000, guid: 2c5dc89bda0eea64c854ae186bff3a98, type: 2}
+  - {fileID: 21300000, guid: 9e95a4512127e254c8db8b2ef6923e4b, type: 2}
+  - {fileID: 21300000, guid: 972cda1cbaa5a7c4798ed28d45e86c48, type: 2}
+  - {fileID: 21300000, guid: b30996af62ccfd342a75f5427e894433, type: 2}
+  - {fileID: 21300000, guid: 1f9f746d87771384bb546c7dae91bf3f, type: 2}
+  m_MinSpeed: 10
+  m_MaxSpeed: 10
+  m_AnimationStartTime: 0
+  m_AnimationStartFrame: 0
+  m_TileColliderType: 0
