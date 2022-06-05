@@ -58,7 +58,7 @@ public class MeleeAttackState : AttackState
             {
                 CharacterService.Instance.Dead();
             }
-            CharacterService.Instance.characterHealth.CanAzalt(10);
+            CharacterService.Instance.characterHealth.CanAzalt(1);
         }
     }
 }
