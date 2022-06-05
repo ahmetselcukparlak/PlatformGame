@@ -10,6 +10,7 @@ TagManager:
   - Enemy
   - Gold
   - Door
+  - Tuzak
   layers:
   - Default
   - TransparentFX

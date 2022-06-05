@@ -27,4 +27,12 @@ public class CharacterTrigger : MonoBehaviour
            }
         }
     }
+    private void OnCollisionEnter2D(Collision2D other) {
+        
+    if(other.gameObject.tag == "Tuzak"){
+        CharacterService.Instance.characterHealth.CanAzalt(CharacterService.Instance.characterHealth.GetHealth());
+    }
+
+           
+    }
 }

@@ -47,7 +47,10 @@ public class Enemy1 : Entity
     public override void Update()
     {
         base.Update();
-        if (isDead)
+        if (isDead){
             stateMachine.ChangeState(deadState);
+            GameManager.Instance.enemies.Remove(gameObject);
+            
+        }
     }
 }
